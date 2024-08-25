@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      var reg = new RegExp("a");
+      console.log(reg.test("abcdef"));
+
+      var reg = new RegExp("a", "i");
+      console.log(reg.test("Abcdef"));
+
+      var reg = /a/i;
+      console.log(reg.test("Abcdef"));
+
+      var reg = /a|b/;
+      console.log(reg.test("bcdef"));
+
+      var reg = /[ab]/;
+      console.log(reg.test("cdef"));
+
+      var reg = /[a-z]/;
+      console.log(reg.test("ABC123"));
+
+      var reg = /[A-z]/;
+      console.log(reg.test("ABC123"));
+
+      var reg = /a[bed]c/;
+      console.log(reg.test("afc"));
+
+      var reg = /a{3}/;
+      console.log(reg.test("aaaBC123"));
+
+      var reg = /(abc){3}/;
+      console.log(reg.test("abcabcabc"));
+
+      var reg = /ab{3}c/;
+      console.log(reg.test("bbbac"));
+      console.log(reg.test("abbbc"));
+
+      var reg = /ab{1,3}c/;
+      console.log(reg.test("abc"));
+
+      var reg = /ab{3,}c/;
+      console.log(reg.test("aaabbbbbc123"));
+
+      var reg = /ab+c/i;
+      console.log(reg.test("aaaC123"));
+
+      var reg = /ab*c/i;
+      console.log(reg.test("aaaC123"));
+
+      var reg = /ab?c/i;
+      console.log(reg.test("aaaC123"));
+
+      var reg = /^b/;
+      console.log(reg.test("aaaC123"));
+
+      var reg = /3$/;
+      console.log(reg.test("aaaC123"));
+
+      var reg = /^b$/;
+      console.log(reg.test("baaaC123b"));
+      console.log(reg.test("b"));
+
+      var reg = /^a|b$/;
+      console.log(reg.test("aaaC123b3"));
+
+      reg = /\w/;
+      console.log(reg.test("   "));
+
+      reg = /\W/;
+      reg = /\d/;
+      console.log(reg.test(" abc  "));
+
+      reg = /\D/;
+
+      reg = /\s/;
+      console.log(reg.test("   "));
+
+      reg = /\S/;
+      console.log(reg.test("   "));
+
+      reg = /\babc\b/;
+      console.log(reg.test("abc"));
+
+      reg = /\B/;
+    </script>
+  </head>
+  <body></body>
+</html>

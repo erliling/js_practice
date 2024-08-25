@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      var str = "hello 1hello3 aec 6afc";
+      var result = str.split(/[A-z]/);
+      console.log(result);
+
+      str = "hello 1hello3 aec 6afc";
+      result = str.search(/\d/);
+      result = str.search(/a[bef]c/gi);
+      console.log(result);
+
+      str = "hello 1hello3 aec 6afc";
+      result = str.match(/\d/);
+      result = str.match(/\d/gi);
+      //   result = str.search(/a[bef]c/);
+      console.log(result);
+
+      str = "hello 1hello3 aec 6afc";
+      result = str.replace(/[A-z]/gi, "$$$");
+      //   result = str.search(/a[bef]c/gi);
+      console.log(result);
+    </script>
+  </head>
+
+  <body></body>
+</html>
