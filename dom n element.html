@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //   var btn01 = document.getElementById("btn01");
+      //   var lis = document.getElementsByTagName("li");
+      //   var erlis = getElementsByName("erli");
+      //   var erlis = getElementsByClassName("erli");
+
+      //   var city = document.getElementById("city");
+      //   var lis = city.getElementsByTagName("li");
+      //   var cns = city.childNodes;
+      //   var cns2 = city.children;
+      //   var first = city.firstChild;
+      //   var last = city.lastChild;
+
+      //   var city = document.getElementById("city");
+      //   var pn = city.parentNode;
+      //   var prev = city.previousSibling;
+      //   var next = city.nextSibling;
+
+      window.onload = function () {
+        myClick("btn01", function () {
+          var li = document.createElement("li");
+          var litext = document.createTextNode("nanchange");
+          li.appendChild(litext);
+          var city = document.getElementById("city");
+          city.appendChild(li);
+        });
+
+        myClick("btn02", function () {
+          var li = document.createElement("li");
+          var litext = document.createTextNode("nanchange");
+          li.appendChild(litext);
+          var city = document.getElementById("city");
+          var bj = document.getElementById("bj");
+          city.insertBefore(li, bj);
+        });
+
+        myClick("btn03", function () {
+          var li = document.createElement("li");
+          var litext = document.createTextNode("nanchange");
+          li.appendChild(litext);
+          var city = document.getElementById("city");
+          var bj = document.getElementById("bj");
+          city.replaceChild(li, bj);
+        });
+
+        myClick("btn04", function () {
+          var city = document.getElementById("city");
+          var bj = document.getElementById("bj");
+          city.removeChild(bj);
+        });
+
+        myClick("btn05", function () {
+          var city = document.getElementById("city");
+          console.log(city.innerHTML);
+        });
+
+        myClick("btn06", function () {
+          var bj = document.getElementById("bj");
+          bj.innerHTML = "erli";
+        });
+      };
+
+      function myClick(idStr, fun) {
+        var btn = document.getElementById(idStr);
+        btn.onclick = fun;
+      }
+    </script>
+  </head>
+  <body>
+    <div class="total">
+      <div class="inner">
+        <p>which city do you like</p>
+        <ul id="city">
+          <li id="bj">beijing</li>
+          <li>shanghai</li>
+          <li>dongjing</li>
+          <li>shouer</li>
+        </ul>
+      </div>
+    </div>
+    <div class="btnlist">
+      <div><button class="" id="btn01">addnanchang</button></div>
+      <div>
+        <button class="" id="btn02">put nanchang before beijing</button>
+      </div>
+      <div><button class="" id="btn03">replace beijing</button></div>
+      <div><button class="" id="btn04">delete bj</button></div>
+      <div><button class="" id="btn05">read html inside city</button></div>
+      <div><button class="" id="btn06">change html inside bj</button></div>
+    </div>
+  </body>
+</html>
