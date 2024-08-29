@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      window.onload = function () {
+        var checkedAllBtn = document.getElementById("checkedAllBtn");
+        checkedAllBtn.onclick = function () {
+          var items = document.getElementsByName("items");
+          for (var i = 0; i < items.length; i++) {
+            items[i].checked = true;
+          }
+          var checkedAllBox = document.getElementById("checkedAllBox");
+          checkedAllBox.checked = true;
+        };
+
+        var checkednobtn = document.getElementById("checkednobtn");
+        checkednobtn.onclick = function () {
+          var items = document.getElementsByName("items");
+          for (var i = 0; i < items.length; i++) {
+            items[i].checked = false;
+          }
+          var checkedAllBox = document.getElementById("checkedAllBox");
+          checkedAllBox.checked = false;
+        };
+
+        var checkedrevbtn = document.getElementById("checkedrevbtn");
+        checkedrevbtn.onclick = function () {
+          var items = document.getElementsByName("items");
+          var count = 0;
+          for (var i = 0; i < items.length; i++) {
+            items[i].checked = !items[i].checked;
+            count++;
+          }
+          if (count == items.length) {
+            var checkedAllBox = document.getElementById("checkedAllBox");
+            checkedAllBox.checked = items[0].checked;
+          }
+        };
+
+        var sendbtn = document.getElementById("sendbtn");
+        sendbtn.onclick = function () {
+          var items = document.getElementsByName("items");
+          for (var i = 0; i < items.length; i++) {
+            if (items[i].checked) {
+              alert(items[i].value);
+            }
+          }
+        };
+
+        var checkedAllBox = document.getElementById("checkedAllBox");
+        checkedAllBox.onclick = function () {
+          var items = document.getElementsByName("items");
+          for (var i = 0; i < items.length; i++) {
+            // if (checkedAllBox.checked) {
+            //   items[i].checked = true;
+            // } else {
+            //   items[i].checked = false;
+            // }
+            items[i].checked = checkedAllBox.checked;
+          }
+        };
+
+        var items = document.getElementsByName("items");
+        for (var i = 0; i < items.length; i++) {
+          items[i].onclick = function () {
+            checkedAllBox.checked = true;
+            for (var j = 0; j < items.length; j++) {
+              if (!items[j].checked) {
+                checkedAllBox.checked = false;
+                break;
+              }
+            }
+          };
+        }
+      };
+    </script>
+  </head>
+  <body>
+    <form action="post">
+      your favorite sport?
+      <input type="checkbox" id="checkedAllBox" />selectall/selectnone
+      <br />
+      <input type="checkbox" name="items" value="football" />football
+      <input type="checkbox" name="items" value="basketball" />basketball
+      <input type="checkbox" name="items" value="badminten" />badminten
+      <input type="checkbox" name="items" value="pingpong" />pingpong
+      <br />
+      <input type="button" id="checkedAllBtn" value="selectall" />
+      <input type="button" id="checkednobtn" value="selectnone" />
+      <input type="button" id="checkedrevbtn" value="rev" />
+      <input type="button" id="sendbtn" value="send" />
+    </form>
+  </body>
+</html>

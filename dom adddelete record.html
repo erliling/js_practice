@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* .eform {
+        width: 100px;
+      } */
+    </style>
+    <script>
+      window.onload = function () {
+        var alllinks = document.getElementsByTagName("a");
+        for (var i = 0; i < alllinks.length; i++) {
+          alllinks[i].onclick = delrecord;
+        }
+
+        var addempbtn = document.getElementById("addempbtn");
+        addempbtn.onclick = function () {
+          var empName = document.getElementById("empName");
+          var email = document.getElementById("email");
+          var salary = document.getElementById("salary");
+
+          var tr = document.createElement("tr");
+          var td1 = document.createElement("td");
+          //   td1.innerHTML = empName.value;
+          var empnametext = document.createTextNode(empName.value);
+          td1.appendChild(empnametext);
+          tr.appendChild(td1);
+          var td2 = document.createElement("td");
+          td2.innerHTML = email.value;
+          tr.appendChild(td2);
+          var td3 = document.createElement("td");
+          td3.innerHTML = salary.value;
+          tr.appendChild(td3);
+          var td4 = document.createElement("td");
+          var a = document.createElement("a");
+          a.href = "#";
+          a.innerHTML = "delete";
+          a.onclick = delrecord;
+          td4.appendChild(a);
+          tr.appendChild(td4);
+
+          var etable = document.getElementById("emptable");
+          etable.appendChild(tr);
+        };
+
+        function delrecord() {
+          var tr = this.parentNode.parentNode;
+          var name = tr.children[0].innerHTML;
+          var flag = confirm("are you sure to delete " + name + "?");
+          if (flag) {
+            tr.parentNode.removeChild(tr);
+          }
+        }
+      };
+    </script>
+  </head>
+  <body>
+    <table border="1px" id="emptable">
+      <tr>
+        <th>name</th>
+        <th>email</th>
+        <th>salary</th>
+        <th>&nbsp;</th>
+      </tr>
+      <tr>
+        <td>tom</td>
+        <td>tom@tom.com</td>
+        <td>5000</td>
+        <td><a href="#">delete</a></td>
+      </tr>
+      <tr>
+        <td>jerry</td>
+        <td>jerry@tom.com</td>
+        <td>5000</td>
+        <td><a href="#">delete</a></td>
+      </tr>
+    </table>
+
+    <!-- <form class="eform" action="post">
+      <span>add new employee</span>
+      name: <input type="text" name="ename" /> email:
+      <input type="text" name="email" /> salary:
+      <input type="text" name="salary" />
+      <button id="submitbtn">submit</button>
+    </form> -->
+
+    <div id="formDiv">
+      <h4>add new employee</h4>
+      <table>
+        <tr>
+          <td class="word">name:</td>
+          <td class="inp">
+            <input type="text" name="empName" id="empName" />
+          </td>
+        </tr>
+        <tr>
+          <td class="word">email:</td>
+          <td class="inp">
+            <input type="text" name="email" id="email" />
+          </td>
+        </tr>
+        <tr>
+          <td class="word">salary:</td>
+          <td class="inp">
+            <input type="text" name="salary" id="salary" />
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" align="center">
+            <button id="addempbtn" value="abc">submit</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>
