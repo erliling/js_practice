@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #floatdiv {
+        width: 200px;
+        height: 200px;
+        background-color: rosybrown;
+        position: absolute;
+      }
+    </style>
+    <script>
+      window.onload = function () {
+        var floatdiv = document.getElementById("floatdiv");
+        //wrong binding
+        floatdiv.onmousewheel = scrollfun;
+        //right binding
+        floatdiv.onmousewheel = function (event) {
+          event = event || window.event;
+          // alert(event.wheelDelta);
+          if (event.wheelDelta > 0 || event.detail < 0) {
+            // alert("2");
+            floatdiv.style.height = floatdiv.clientHeight - 10 + "px";
+          } else {
+            // alert("1");
+            floatdiv.style.height = floatdiv.clientHeight + 10 + "px";
+          }
+          event.preventDefault && event.preventDefault();
+          return false;
+        };
+        // for firefox
+        bind(floatdiv, "DOMMouseScroll", scrollfun);
+      };
+
+      function scrollfun() {
+        event = event || window.event;
+        // alert(event.wheelDelta);
+        if (event.wheelDelta > 0 || event.detail < 0) {
+          alert("2");
+        } else {
+          alert("1");
+        }
+        // event.preventDefault && event.preventDefault();
+        // return false;
+      }
+
+      function bind(obj, eventStr, callback) {
+        if (obj.addEventListener) {
+          obj.addEventListener(eventStr, callback, false);
+        } else {
+          obj.attachEvent("on" + eventStr, function () {
+            callback.call(obj);
+          });
+        }
+      }
+    </script>
+  </head>
+  <body style="height: 2000px">
+    <div id="floatdiv"></div>
+  </body>
+</html>
