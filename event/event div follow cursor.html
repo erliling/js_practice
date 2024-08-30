@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #floatdiv {
+        width: 200px;
+        height: 200px;
+        background-color: rosybrown;
+        position: absolute;
+      }
+    </style>
+    <script>
+      window.onload = function () {
+        var floatdiv = document.getElementById("floatdiv");
+        document.onmousemove = function (event) {
+          var event = event || winodw.event;
+
+          var st =
+            document.body.scrollTop || document.documentElement.scrollTop;
+
+          floatdiv.style.left = event.clientX + "px";
+          //   floatdiv.style.top = event.clientY + "px";
+          floatdiv.style.top = event.clientY + st + "px";
+          //   floatdiv.style.left = event.pageX + "px";
+          //   floatdiv.style.top = event.pageY + "px";
+        };
+      };
+    </script>
+  </head>
+  <body>
+    <div id="floatdiv"></div>
+  </body>
+</html>

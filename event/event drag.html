@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #floatdiv {
+        width: 200px;
+        height: 200px;
+        background-color: rosybrown;
+        position: absolute;
+      }
+      #floatdiv2 {
+        width: 200px;
+        height: 200px;
+        background-color: deepskyblue;
+        position: absolute;
+      }
+      #floatp {
+        position: absolute;
+      }
+    </style>
+    <script>
+      window.onload = function () {
+        var floatdiv = document.getElementById("floatdiv");
+        drag(floatdiv);
+        var floatdiv2 = document.getElementById("floatdiv2");
+        drag(floatdiv2);
+        var floatp = document.getElementById("floatp");
+        drag(floatp);
+      };
+
+      function drag(obj) {
+        obj.onmousedown = function (event) {
+          var event = event || winodw.event;
+          // obj.setCapture && obj.setCapture();
+          var ol = event.clientX - obj.offsetLeft;
+          var ot = event.clientY - obj.offsetTop;
+
+          document.onmousemove = function (event) {
+            var event = event || winodw.event;
+
+            obj.style.left = event.clientX - ol + "px";
+            obj.style.top = event.clientY - ot + "px";
+          };
+        };
+
+        obj.onmouseup = function () {
+          document.onmousemove = null;
+          document.onmouseup = null;
+          // obj.releaseCapture && obj.releaseCapture();
+          // return false;
+          // alert("hi");
+        };
+      }
+    </script>
+  </head>
+  <body>
+    <div id="floatdiv"></div>
+    <br />
+    <div id="floatdiv2"></div>
+    <br />
+    <!-- not working if it's p tag -->
+    <div id="floatp">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur,
+      debitis.
+    </div>
+  </body>
+</html>
