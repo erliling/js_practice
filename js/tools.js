@@ -41,3 +41,25 @@ function move(obj, attr, target, speed, callback) {
       }
     }, 30);
   }
+
+  function toggleClass(obj, cn) {
+    if (hasClass(obj, cn)) {
+        removeClass(obj, cn);
+    } else {
+        addClass(obj, cn);
+    }
+  }
+
+  function hasClass(obj,cn) {
+    var reg = new RegExp("\\b" + cn +"\\b");
+    return reg.test(obj.className);
+  }
+
+  function removeClass(obj, cn) {
+    var reg = new RegExp("\\b" + cn +"\\b");
+    obj.className = obj.className.replace(reg, "");
+  }
+
+  function addClass(obj, cn) {
+    obj.className += " " + cn;
+  }
