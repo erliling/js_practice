@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      #floatdiv {
+        width: 200px;
+        height: 200px;
+        background-color: rosybrown;
+        position: absolute;
+        left: 0;
+      }
+      #floatdiv2 {
+        width: 200px;
+        height: 200px;
+        background-color: deepskyblue;
+        position: absolute;
+        left: 0;
+        top: 300px;
+      }
+    </style>
+    <script type="text/javascript" src="../js/tools.js""></script>
+    <script>
+      window.onload = function () {
+        var box1 = document.getElementById("floatdiv");
+        var box2 = document.getElementById("floatdiv2");
+        var btn01 = document.getElementById("btn01");
+        var btn02 = document.getElementById("btn02");
+        var btn03 = document.getElementById("btn03");
+
+        btn01.onclick = function () {
+          move(box1, "left", 800, 10);
+        };
+
+        btn02.onclick = function () {
+          move(box1, "left", 0, -10);
+        };
+
+        btn03.onclick = function () {
+          //   move(box2, "top", 1000, 10);
+          // move(box2, "left", 1000, 10, function () {
+          //   alert("finished");
+          // });
+          move(box2, "left", 1000, 10, function () {
+            move(box2, "width", 1020, 10, function () {
+              move(box1, "left", 0, -10);
+            });
+          });
+        };
+      };
+
+      //   var timer;
+    </script>
+  </head>
+  <body>
+    <button id="btn01">click to move box1 right</button>
+    <button id="btn02">click to move box1 left</button>
+    <button id="btn03">click to move box2 right</button>
+    <br /><br />
+    <div id="floatdiv"></div>
+    <br />
+    <div id="floatdiv2"></div>
+  </body>
+</html>

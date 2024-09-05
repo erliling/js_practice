@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #floatdiv {
+        width: 200px;
+        height: 200px;
+        background-color: rosybrown;
+        position: absolute;
+      }
+    </style>
+    <script>
+      window.onload = function () {
+        var speed = 10;
+        var dir = 0;
+        var floatdiv = document.getElementById("floatdiv");
+
+        setInterval(() => {
+          switch (dir) {
+            case 37:
+              floatdiv.style.left = floatdiv.offsetLeft - speed + "px";
+              break;
+            case 39:
+              floatdiv.style.left = floatdiv.offsetLeft + speed + "px";
+
+              break;
+            case 38:
+              floatdiv.style.top = floatdiv.offsetTop - speed + "px";
+
+              break;
+            case 40:
+              floatdiv.style.top = floatdiv.offsetTop + speed + "px";
+
+              break;
+          }
+        }, 30);
+
+        document.onkeydown = function (event) {
+          event = event || window.event;
+
+          if (event.altKey) {
+            speed = 500;
+          }
+
+          dir = event.keyCode;
+
+          //prevent scrollbar scroll
+          // event.preventDefault && event.preventDefault();
+          // return false;
+        };
+      };
+
+      function scrollfun() {
+        event = event || window.event;
+      }
+
+      function bind(obj, eventStr, callback) {
+        if (obj.addEventListener) {
+          obj.addEventListener(eventStr, callback, false);
+        } else {
+          obj.attachEvent("on" + eventStr, function () {
+            callback.call(obj);
+          });
+        }
+      }
+    </script>
+  </head>
+  <body style="height: 2000px">
+    <div id="floatdiv"></div>
+  </body>
+</html>
