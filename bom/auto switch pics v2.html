@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      #outer {
+        width: 520px;
+        height: 300px;
+        margin: 50px auto;
+        padding: 10px 0;
+        background-color: greenyellow;
+        /* text-align: center; */
+        position: relative;
+        overflow: hidden;
+      }
+      .myimg {
+        width: 500px;
+        height: 300px;
+      }
+      #imgList {
+        /* width: 1560px; */
+        list-style: none;
+        position: absolute;
+        left: 0px;
+      }
+      #imgList li {
+        float: left;
+        margin: 0 10px;
+      }
+      #navDiv {
+        position: absolute;
+        /* vertical-align: bottom; */
+        bottom: 15px;
+      }
+      #navDiv a {
+        width: 20px;
+        height: 20px;
+        background-color: rebeccapurple;
+        display: block;
+        float: left;
+        margin: 0 5px;
+        opacity: 0.5;
+        filter: alpha(opacity=50);
+      }
+      #navDiv a:hover {
+        background-color: black;
+      }
+    </style>
+    <script type="text/javascript" src="../js/tools.js"></script>
+    <script>
+      var index = 0;
+      // var preindex = 0;
+      var allA = document.getElementsByTagName("a");
+      var imgArr = document.getElementsByClassName("myimg");
+
+      window.onload = function () {
+        var imgList = document.getElementById("imgList");
+
+        imgList.style.width = 520 * imgArr.length + "px";
+
+        var navDiv = document.getElementById("navDiv");
+        var outer = document.getElementById("outer");
+        navDiv.style.left = (outer.offsetWidth - navDiv.offsetWidth) / 2 + "px";
+
+        allA[index].style.backgroundColor = "black";
+
+        for (var i = 0; i < allA.length; i++) {
+          allA[i].num = i;
+          allA[i].onclick = function () {
+            clearInterval(timer);
+
+            index = this.num;
+            // imgList.style.left = -520 * index + "px";
+
+            // if (preindex < index) {
+            //   move(imgList, "left", -520 * index, -10);
+            // } else {
+            //   move(imgList, "left", -520 * index, 10);
+            // }
+
+            move(imgList, "left", -520 * index, 10, function () {
+              setSelectedNav();
+              autoswitch();
+            });
+
+            // setSelectedNav();
+          };
+        }
+
+        autoswitch();
+      };
+
+      var timer;
+
+      function autoswitch() {
+        timer = setInterval(() => {
+          if (index >= imgArr.length - 1) {
+            index = -1;
+          } else {
+            index++;
+            index %= imgArr.length;
+          }
+
+          move(imgList, "left", -520 * index, 20, function () {
+            setSelectedNav();
+          });
+        }, 3000);
+      }
+
+      function setSelectedNav() {
+        // if (index >= imgArr.length - 1) {
+        //   index = 0;
+        //   // imgList.style.left = 0;
+        // }
+
+        for (var i = 0; i < allA.length; i++) {
+          allA[i].style.backgroundColor = "rebeccapurple";
+        }
+        allA[index].style.backgroundColor = "black";
+        // preindex = index;
+      }
+    </script>
+  </head>
+  <body>
+    <div id="outer">
+      <ul id="imgList">
+        <li>
+          <img class="myimg" src="../images/1.jpeg" alt="" />
+        </li>
+        <li>
+          <img class="myimg" src="../images/2.jpeg" alt="" />
+        </li>
+        <li>
+          <img class="myimg" src="../images/3.jpeg" alt="" />
+        </li>
+        <li>
+          <img class="myimg" src="../images/4.jpeg" alt="" />
+        </li>
+        <li>
+          <img class="myimg" src="../images/5.jpeg" alt="" />
+        </li>
+        <li>
+          <img class="myimg" src="../images/1.jpeg" alt="" />
+        </li>
+        <li>
+          <img class="myimg" src="../images/2.jpeg" alt="" />
+        </li>
+      </ul>
+
+      <div id="navDiv">
+        <a href="javascript:;"></a>
+        <a href="javascript:;"></a>
+        <a href="javascript:;"></a>
+        <a href="javascript:;"></a>
+        <a href="javascript:;"></a>
+      </div>
+    </div>
+  </body>
+</html>

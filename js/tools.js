@@ -12,6 +12,11 @@ function move(obj, attr, target, speed, callback) {
       clearInterval(obj.timer);
     }
 
+    var current = parseInt(getStyle(obj, attr));
+    if(current > target) {
+        speed = -speed;
+      }
+
     obj.timer = setInterval(function () {
       // get element style
       // const cssObj = window.getComputedStyle(obj, null);
