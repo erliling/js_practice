@@ -9,22 +9,27 @@
       var str = "hello 1hello3 aec 6afc";
       var result = str.split(/[A-z]/);
       console.log(result);
+      // split every letter only leave number and return
 
       str = "hello 1hello3 aec 6afc";
       result = str.search(/\d/);
       result = str.search(/a[bef]c/gi);
       console.log(result);
+      //find the first number
+      // find the first aec abc or afc
 
       str = "hello 1hello3 aec 6afc";
       result = str.match(/\d/);
       result = str.match(/\d/gi);
       //   result = str.search(/a[bef]c/);
       console.log(result);
+      // find all numbers and return
 
       str = "hello 1hello3 aec 6afc";
       result = str.replace(/[A-z]/gi, "$$$");
       //   result = str.search(/a[bef]c/gi);
       console.log(result);
+      // replace all letters
     </script>
   </head>
 

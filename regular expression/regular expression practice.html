@@ -6,11 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script>
+      //phone number reg
       var str = "13170862925aaa";
       //   exp = /^1[3-9]{1}\d{9}/;
       var exp = /^1[3-9][0-9]{9}$/;
       console.log(exp.test(str));
 
+      //clear spaces in the beginning and end, and replace with #
       str = "   erli bird  ";
       //   result = str.replace(/^\s+|\s$/, "#");
       //result = str.replace(/[^\s+, \s+$]/, "#");
@@ -18,11 +20,18 @@
       console.log(result);
 
       //remember to have ^ and $ when define exp
+      //email address reg
       str = "eling@tamu.edu.cnjkl";
       //   exp = /(\w|_).(\w|_)@([A-z]).([A-z]{2,5}).([A-z]{2,5})/;
       //   exp = /^\w{2,}(\.\w+)*@([A-z]|[0-9])+(\.[A-z]{2,5}){1,2}$/;
       exp = /^\w{2,}(\.\w+)*@([A-z0-9])+(\.[A-z]{2,5}){1,2}$/;
       console.log(exp.test(str));
+      // \w to begin, >=2 times
+      // follows by . and \w >=1 times, and the whole repeats >=0 times
+      //@
+      // any letter or number, >=1 times
+      // follows by . and letter 2-5 times, and the whole repeats 1-2 times
+      //end
     </script>
   </head>
   <body></body>

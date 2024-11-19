@@ -9,12 +9,15 @@
       var reg = new RegExp("a");
       console.log(reg.test("abcdef"));
 
+      // ignore cap letter
       var reg = new RegExp("a", "i");
       console.log(reg.test("Abcdef"));
 
+      //short
       var reg = /a/i;
       console.log(reg.test("Abcdef"));
 
+      // | or [] means or
       var reg = /a|b/;
       console.log(reg.test("bcdef"));
 
@@ -24,12 +27,18 @@
       var reg = /[a-z]/;
       console.log(reg.test("ABC123"));
 
+      //any letter
       var reg = /[A-z]/;
       console.log(reg.test("ABC123"));
 
       var reg = /a[bed]c/;
       console.log(reg.test("afc"));
 
+      // except, inside []
+      var reg = /[^0-9]/;
+      console.log(reg.test("12a3456"));
+
+      // n times or m-n times or >m times
       var reg = /a{3}/;
       console.log(reg.test("aaaBC123"));
 
@@ -46,18 +55,23 @@
       var reg = /ab{3,}c/;
       console.log(reg.test("aaabbbbbc123"));
 
+      // >=1 times
       var reg = /ab+c/i;
       console.log(reg.test("aaaC123"));
 
+      // >=0 times
       var reg = /ab*c/i;
       console.log(reg.test("aaaC123"));
 
+      // 0 or 1 time
       var reg = /ab?c/i;
       console.log(reg.test("aaaC123"));
 
+      //begin
       var reg = /^b/;
       console.log(reg.test("aaaC123"));
 
+      //end
       var reg = /3$/;
       console.log(reg.test("aaaC123"));
 
@@ -68,24 +82,33 @@
       var reg = /^a|b$/;
       console.log(reg.test("aaaC123b3"));
 
+      // any letter and number and _
       reg = /\w/;
       console.log(reg.test("   "));
 
+      // except any letter and number and _
       reg = /\W/;
+
+      //any number
       reg = /\d/;
       console.log(reg.test(" abc  "));
 
+      //except any number
       reg = /\D/;
 
+      //space
       reg = /\s/;
       console.log(reg.test("   "));
 
+      //except space
       reg = /\S/;
       console.log(reg.test("   "));
 
+      // border of word
       reg = /\babc\b/;
       console.log(reg.test("abc"));
 
+      // except border of word
       reg = /\B/;
     </script>
   </head>
