@@ -26,6 +26,7 @@
       window.onload = function () {
         var prev = document.getElementById("prev");
         var next = document.getElementById("next");
+        // get elementsbyclassname, so return an array
         var img = document.getElementsByClassName("myimg")[0];
         var imgArr = [
           "./images/1.jpeg",
@@ -44,6 +45,7 @@
           (index + 1) +
           " one";
 
+        // it will stop at the beginning
         prev.onclick = function () {
           //   alert("before");
 
@@ -59,6 +61,8 @@
             (index + 1) +
             " one";
         };
+
+        // it will stop in the end
         next.onclick = function () {
           //   alert("next");
           //   img.src = "./images/2.jpeg";

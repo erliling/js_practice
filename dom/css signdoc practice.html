@@ -12,16 +12,26 @@
         background-color: #bfa;
         overflow: auto;
       }
+      span {
+        color: gray;
+      }
     </style>
     <script>
+      //window.onload
       window.onload = function () {
+        //getelementbyid
         var infop = document.getElementById("info");
         var inputs = document.getElementsByTagName("input");
+        var spans = document.getElementsByTagName("span");
 
         infop.onscroll = function () {
+          // scrollheight, the height of the whole scroll area
+          // scrolltop, the distance of vertical scrollbar scrolled
+          // clientheight, the height of visible area
           if (infop.scrollHeight - infop.scrollTop == infop.clientHeight) {
             inputs[0].disabled = false;
             inputs[1].disabled = false;
+            spans[0].style.color = "black";
           }
         };
       };
@@ -248,7 +258,8 @@
       Fugiat vero, accusantium delectus tempora voluptates maiores dicta,
       deleniti dolores obcaecati quis error consectetur! Doloribus, in soluta!
     </p>
-    <input type="checkbox" disabled="disabled" />I have read through
+    <input type="checkbox" disabled="disabled" />
+    <span>I have read through</span>
     <input type="submit" value="register" disabled="disabled" name="" id="" />
   </body>
 </html>

@@ -10,6 +10,7 @@
         width: 200px;
         height: 200px;
         background-color: rosybrown;
+        /* div.style.left/right/top/bottom only work for absolute div */
         position: absolute;
       }
     </style>
@@ -19,12 +20,17 @@
         document.onmousemove = function (event) {
           var event = event || winodw.event;
 
+          // get the distance of the scroll bar scrolled
           var st =
             document.body.scrollTop || document.documentElement.scrollTop;
 
+          // client x/y, the h & v of mouse's position in visible area
           floatdiv.style.left = event.clientX + "px";
+
           //   floatdiv.style.top = event.clientY + "px";
           floatdiv.style.top = event.clientY + st + "px";
+
+          // page x/y, the h & v of mouse's position in whole page
           //   floatdiv.style.left = event.pageX + "px";
           //   floatdiv.style.top = event.pageY + "px";
         };

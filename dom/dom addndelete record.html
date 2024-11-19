@@ -12,6 +12,7 @@
     </style>
     <script>
       window.onload = function () {
+        // attach delete event on all links
         var alllinks = document.getElementsByTagName("a");
         for (var i = 0; i < alllinks.length; i++) {
           alllinks[i].onclick = delrecord;
@@ -23,11 +24,15 @@
           var email = document.getElementById("email");
           var salary = document.getElementById("salary");
 
+          // create element
           var tr = document.createElement("tr");
           var td1 = document.createElement("td");
-          //   td1.innerHTML = empName.value;
-          var empnametext = document.createTextNode(empName.value);
-          td1.appendChild(empnametext);
+          td1.innerHTML = empName.value;
+          // create text node
+          // createTextNode will escape any strings and show them as they are, while innerHTML could render html-like strings into a DOM
+          // var empnametext = document.createTextNode(empName.value);
+          // append child
+          // td1.appendChild(empnametext);
           tr.appendChild(td1);
           var td2 = document.createElement("td");
           td2.innerHTML = email.value;
@@ -49,9 +54,11 @@
 
         function delrecord() {
           var tr = this.parentNode.parentNode;
+          // find the record's name
           var name = tr.children[0].innerHTML;
           var flag = confirm("are you sure to delete " + name + "?");
           if (flag) {
+            // delete the whole row
             tr.parentNode.removeChild(tr);
           }
         }
@@ -59,6 +66,7 @@
     </script>
   </head>
   <body>
+    <!-- display info -->
     <table border="1px" id="emptable">
       <tr>
         <th>name</th>
@@ -88,6 +96,7 @@
       <button id="submitbtn">submit</button>
     </form> -->
 
+    <!-- input info -->
     <div id="formDiv">
       <h4>add new employee</h4>
       <table>

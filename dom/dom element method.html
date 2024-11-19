@@ -24,6 +24,7 @@
       //   var next = city.nextSibling;
 
       window.onload = function () {
+        // addnanchang
         myClick("btn01", function () {
           var li = document.createElement("li");
           var litext = document.createTextNode("nanchange");
@@ -32,6 +33,7 @@
           city.appendChild(li);
         });
 
+        // put nanchang before beijing
         myClick("btn02", function () {
           var li = document.createElement("li");
           var litext = document.createTextNode("nanchange");
@@ -41,6 +43,7 @@
           city.insertBefore(li, bj);
         });
 
+        // replace beijing
         myClick("btn03", function () {
           var li = document.createElement("li");
           var litext = document.createTextNode("nanchange");
@@ -50,23 +53,27 @@
           city.replaceChild(li, bj);
         });
 
+        // remove bj
         myClick("btn04", function () {
           var city = document.getElementById("city");
           var bj = document.getElementById("bj");
           city.removeChild(bj);
         });
 
+        //display inner html
         myClick("btn05", function () {
           var city = document.getElementById("city");
-          console.log(city.innerHTML);
+          alert(city.innerHTML);
         });
 
+        // modify inner html
         myClick("btn06", function () {
           var bj = document.getElementById("bj");
           bj.innerHTML = "erli";
         });
       };
 
+      // abstract common fun
       function myClick(idStr, fun) {
         var btn = document.getElementById(idStr);
         btn.onclick = fun;
