@@ -32,16 +32,26 @@
         drag(floatp);
       };
 
+      // abstract drag function
       function drag(obj) {
         obj.onmousedown = function (event) {
           var event = event || winodw.event;
           // obj.setCapture && obj.setCapture();
+          // client x/y, The coordinates of the mouse pointer when clicked
+          // offsetleft/top, Get the positions of obj
+          // get the original offset of the mouse and div
+          // var ol = event.clientX;
+          // var ot = event.clientY;
           var ol = event.clientX - obj.offsetLeft;
           var ot = event.clientY - obj.offsetTop;
 
           document.onmousemove = function (event) {
             var event = event || winodw.event;
 
+            // obj.style.left = event.clientX + "px";
+            // obj.style.top = event.clientY + "px";
+            // the position of the mouse might not be the same as the position of the div (left top corner)
+            // get the real position of obj's left and top
             obj.style.left = event.clientX - ol + "px";
             obj.style.top = event.clientY - ot + "px";
           };

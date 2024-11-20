@@ -13,14 +13,18 @@
       #outer {
         width: 520px;
         height: 300px;
+        /* h center */
         margin: 50px auto;
+        /* padding for top n bottom */
         padding: 10px 0;
         background-color: greenyellow;
         /* text-align: center; */
         position: relative;
+        /* hide the other images */
         overflow: hidden;
       }
       .myimg {
+        /* leave 10px on left/right */
         width: 500px;
         height: 300px;
       }
@@ -28,12 +32,15 @@
         /* width: 1560px; */
         list-style: none;
         position: absolute;
+        /* left according to outer */
         left: 0px;
       }
       #imgList li {
         float: left;
         margin: 0 10px;
       }
+
+      /* nav buttons */
       #navDiv {
         position: absolute;
         /* vertical-align: bottom; */
@@ -47,6 +54,7 @@
         float: left;
         margin: 0 5px;
         opacity: 0.5;
+        /* for ie */
         filter: alpha(opacity=50);
       }
       #navDiv a:hover {
@@ -63,10 +71,12 @@
       window.onload = function () {
         var imgList = document.getElementById("imgList");
 
+        // calculate width when onload
         imgList.style.width = 520 * imgArr.length + "px";
 
         var navDiv = document.getElementById("navDiv");
         var outer = document.getElementById("outer");
+        // calculate nav div's position
         navDiv.style.left = (outer.offsetWidth - navDiv.offsetWidth) / 2 + "px";
 
         allA[index].style.backgroundColor = "black";
@@ -85,6 +95,7 @@
             //   move(imgList, "left", -520 * index, 10);
             // }
 
+            // function move(obj, attr, target, speed, callback)
             move(imgList, "left", -520 * index, 10, function () {
               setSelectedNav();
               autoswitch();
@@ -120,6 +131,7 @@
         //   // imgList.style.left = 0;
         // }
 
+        // reset all navs = purple first, then set the selected one
         for (var i = 0; i < allA.length; i++) {
           allA[i].style.backgroundColor = "rebeccapurple";
         }

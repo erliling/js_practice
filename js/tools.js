@@ -25,7 +25,7 @@ function move(obj, attr, target, speed, callback) {
 
       var newValue = oldValue + speed;
 
-      // stop at the edge
+      // stop at the edge of either side
       if (
         (speed < 0 && newValue < target) ||
         (speed > 0 && newValue > target)
@@ -51,6 +51,7 @@ function move(obj, attr, target, speed, callback) {
   }
 
   function hasClass(obj,cn) {
+    // only has cn is enough, doesn't have to start and end with it
     var reg = new RegExp("\\b" + cn +"\\b");
     return reg.test(obj.className);
   }
