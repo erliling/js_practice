@@ -37,24 +37,33 @@
             // if (openDiv != parentDiv) {
             //   addClass(openDiv, "collapsed");
             // }
+
+            // to avoid if open and close the same div, it won't open again
             if (openDiv != parentDiv && !hasClass(openDiv, "collapsed")) {
               //   toggleClass(openDiv, "collapsed");
+
+              // close prev opened divs, there should be only one div openned
               toggleMenu(openDiv);
             }
 
+            // it won't go back to above section again after this code
             openDiv = parentDiv;
           };
         }
       };
 
       function toggleMenu(obj) {
+        // automatically get the height
         var begin = obj.offsetHeight;
 
         toggleClass(obj, "collapsed");
 
         var end = obj.offsetHeight;
+
+        // quickly set obj's begin height, then "move" to end
         obj.style.height = begin + "px";
         move(obj, "height", end, 10, function () {
+          // delete style otherwise the height won't change
           obj.style.height = "";
         });
       }

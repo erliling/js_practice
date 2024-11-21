@@ -35,6 +35,7 @@ function move(obj, attr, target, speed, callback) {
 
       obj.style[attr] = newValue + "px";
 
+      // delete timer when meets target, then call callback fun
       if (newValue == target) {
         clearInterval(obj.timer);
         callback && callback();

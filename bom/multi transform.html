@@ -35,12 +35,13 @@
         var btn02 = document.getElementById("btn02");
         var btn03 = document.getElementById("btn03");
 
+        // function move(obj, attr, target, speed, callback)
         btn01.onclick = function () {
           move(box1, "left", 800, 10);
         };
 
         btn02.onclick = function () {
-          move(box1, "left", 0, -10);
+          move(box1, "left", 0, 10);
         };
 
         btn03.onclick = function () {
@@ -48,9 +49,13 @@
           // move(box2, "left", 1000, 10, function () {
           //   alert("finished");
           // });
+
+          // have nested callback that make multi moves
+          // it can control other obj's moves
+          // the speed should always > 0, otherwise it will jump back to the target
           move(box2, "left", 1000, 10, function () {
             move(box2, "width", 1020, 10, function () {
-              move(box1, "left", 0, -10);
+              move(box1, "left", 0, 10);
             });
           });
         };
