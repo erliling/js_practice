@@ -111,18 +111,26 @@
       var timer;
 
       function autoswitch() {
-        timer = setInterval(() => {
+        // both setinterval functions are the same
+        // timer = setInterval(() => {
+        timer = setInterval(function () {
           if (index >= imgArr.length - 1) {
-            index = -1;
+            // console.log("index1=" + index);
+            // after image goes back, it should go to index=0 first
+            // but if the interval second is too small like 3000, index can be 3000
+            // just make it to go to -1 but no one would notice -1, it quickly moves to index=0 cz after this 3000ms
+            index = 0;
           } else {
+            // console.log("index2=" + index);
             index++;
             index %= imgArr.length;
           }
 
+          // console.log("index3=" + index);
           move(imgList, "left", -520 * index, 20, function () {
             setSelectedNav();
           });
-        }, 3000);
+        }, 6000);
       }
 
       function setSelectedNav() {
@@ -158,12 +166,13 @@
         <li>
           <img class="myimg" src="../images/5.jpeg" alt="" />
         </li>
-        <li>
+        <!-- it's not a bug, cz there're two more pics, less than the nav's number -->
+        <!-- <li>
           <img class="myimg" src="../images/1.jpeg" alt="" />
         </li>
         <li>
           <img class="myimg" src="../images/2.jpeg" alt="" />
-        </li>
+        </li> -->
       </ul>
 
       <div id="navDiv">
