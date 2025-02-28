@@ -20,7 +20,7 @@
         document.onmousemove = function (event) {
           var event = event || winodw.event;
 
-          // get the distance of the scroll bar scrolled
+          // get the distance of the scroll bar scrolled??
           var st =
             document.body.scrollTop || document.documentElement.scrollTop;
 
@@ -28,9 +28,10 @@
           floatdiv.style.left = event.clientX + "px";
 
           //   floatdiv.style.top = event.clientY + "px";
-          floatdiv.style.top = event.clientY + st + "px";
+          // floatdiv.style.top = event.clientY + st + "px";
+          floatdiv.style.top = event.clientY + "px";
 
-          // page x/y, the h & v of mouse's position in whole page
+          // page x/y, the h & v of mouse's position in whole page; seems working as well
           //   floatdiv.style.left = event.pageX + "px";
           //   floatdiv.style.top = event.pageY + "px";
         };
