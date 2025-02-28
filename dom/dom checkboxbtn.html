@@ -7,7 +7,7 @@
     <title>Document</title>
     <script>
       window.onload = function () {
-        // check all checkboxes and toggle main checkbox
+        // checkedallbtn, check all checkboxes and toggle main checkbox
         var checkedAllBtn = document.getElementById("checkedAllBtn");
         checkedAllBtn.onclick = function () {
           var items = document.getElementsByName("items");
@@ -18,7 +18,7 @@
           checkedAllBox.checked = true;
         };
 
-        // uncheck all
+        // checkednobtn, uncheck all
         var checkednobtn = document.getElementById("checkednobtn");
         checkednobtn.onclick = function () {
           var items = document.getElementsByName("items");
@@ -29,7 +29,7 @@
           checkedAllBox.checked = false;
         };
 
-        // toggle
+        // checkedrevbtn, toggle
         var checkedrevbtn = document.getElementById("checkedrevbtn");
         checkedrevbtn.onclick = function () {
           var items = document.getElementsByName("items");
@@ -44,7 +44,7 @@
           }
         };
 
-        // display checked items
+        // sendbtn, display checked items
         var sendbtn = document.getElementById("sendbtn");
         sendbtn.onclick = function () {
           var items = document.getElementsByName("items");
@@ -55,7 +55,7 @@
           }
         };
 
-        // toggle main checkbox
+        // checkallbox, toggle main checkbox
         var checkedAllBox = document.getElementById("checkedAllBox");
         checkedAllBox.onclick = function () {
           var items = document.getElementsByName("items");
@@ -69,7 +69,7 @@
           }
         };
 
-        // handle checkboxes and the main checkbox, if not total items checked, make the main checkbox unchecked
+        // each checkbox, handle checkboxes and the main checkbox, if not total items checked, make the main checkbox unchecked
         var items = document.getElementsByName("items");
         for (var i = 0; i < items.length; i++) {
           items[i].onclick = function () {
