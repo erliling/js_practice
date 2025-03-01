@@ -12,11 +12,13 @@ function move(obj, attr, target, speed, callback) {
       clearInterval(obj.timer);
     }
 
+    // change move direction if possible
     var current = parseInt(getStyle(obj, attr));
     if(current > target) {
         speed = -speed;
       }
 
+    // set timers to move to the target with a speed, not move there directly
     obj.timer = setInterval(function () {
       // get element style
       // const cssObj = window.getComputedStyle(obj, null);

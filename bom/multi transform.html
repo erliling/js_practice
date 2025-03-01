@@ -55,7 +55,7 @@
           // the speed should always > 0, otherwise it will jump back to the target
           move(box2, "left", 1000, 10, function () {
             move(box2, "width", 1020, 10, function () {
-              move(box1, "left", 0, 10);
+              move(box2, "left", 0, 10);
             });
           });
         };
@@ -67,7 +67,9 @@
   <body>
     <button id="btn01">click to move box1 right</button>
     <button id="btn02">click to move box1 left</button>
-    <button id="btn03">click to move box2 right</button>
+    <button id="btn03">
+      click to move box2 right, then change width, then left
+    </button>
     <br /><br />
     <div id="floatdiv"></div>
     <br />

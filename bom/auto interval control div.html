@@ -19,6 +19,7 @@
         var dir = 0;
         var floatdiv = document.getElementById("floatdiv");
 
+        // open an interval and check infinitely
         setInterval(() => {
           switch (dir) {
             case 37:
@@ -39,6 +40,7 @@
           }
         }, 30);
 
+        // keydown event to check speed and dir value change
         document.onkeydown = function (event) {
           event = event || window.event;
 

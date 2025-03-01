@@ -45,11 +45,14 @@
         position: absolute;
         /* vertical-align: bottom; */
         bottom: 15px;
+        /* if don't calculate width in js */
+        left: 180px;
       }
       #navDiv a {
         width: 20px;
         height: 20px;
         background-color: rebeccapurple;
+        /* treat a tag as a button */
         display: block;
         float: left;
         margin: 0 5px;
@@ -71,16 +74,18 @@
       window.onload = function () {
         var imgList = document.getElementById("imgList");
 
-        // calculate width when onload
+        // calculate width when onload in case we dont' know the number of images
         imgList.style.width = 520 * imgArr.length + "px";
 
-        var navDiv = document.getElementById("navDiv");
-        var outer = document.getElementById("outer");
+        // var navDiv = document.getElementById("navDiv");
+        // var outer = document.getElementById("outer");
         // calculate nav div's position
-        navDiv.style.left = (outer.offsetWidth - navDiv.offsetWidth) / 2 + "px";
+        // offsetwidth is the viewable width of an element (in pixels) including padding, border and scrollbar, but not the margin
+        // navDiv.style.left = (outer.offsetWidth - navDiv.offsetWidth) / 2 + "px";
 
         allA[index].style.backgroundColor = "black";
 
+        // case 1, when click nav buttons
         for (var i = 0; i < allA.length; i++) {
           allA[i].num = i;
           allA[i].onclick = function () {
@@ -97,7 +102,9 @@
 
             // function move(obj, attr, target, speed, callback)
             move(imgList, "left", -520 * index, 10, function () {
+              //change nav button after callback
               setSelectedNav();
+              //continue with autoswitch
               autoswitch();
             });
 
@@ -114,6 +121,7 @@
         // both setinterval functions are the same
         // timer = setInterval(() => {
         timer = setInterval(function () {
+          // deal with index number first
           if (index >= imgArr.length - 1) {
             // console.log("index1=" + index);
             // after image goes back, it should go to index=0 first

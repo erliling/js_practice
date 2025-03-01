@@ -50,12 +50,7 @@
         // }, 1000);
 
         var info = document.getElementsByClassName("info")[0];
-        info.innerHTML =
-          "total " +
-          imgArr.length +
-          " pictures, this is the " +
-          (index + 1) +
-          " one";
+        setInfo();
 
         function setInfo() {
           info.innerHTML =
@@ -74,12 +69,7 @@
             index = 0;
           }
           img.src = imgArr[index];
-          info.innerHTML =
-            "total " +
-            imgArr.length +
-            " pictures, this is the " +
-            (index + 1) +
-            " one";
+          setInfo();
         };
 
         next.onclick = function () {
@@ -90,12 +80,7 @@
             index = imgArr.length - 1;
           }
           img.src = imgArr[index];
-          info.innerHTML =
-            "total " +
-            imgArr.length +
-            " pictures, this is the " +
-            (index + 1) +
-            " one";
+          setInfo();
         };
 
         start.onclick = function () {
@@ -106,6 +91,7 @@
 
           timer = setInterval(function () {
             index++;
+            // not hit the borders
             index = index % imgArr.length;
             img.src = imgArr[index];
             setInfo();
