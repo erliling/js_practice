@@ -26,12 +26,15 @@
       window.onload = function () {
         var menuSpan = document.getElementsByClassName("menuSpan");
 
+        // get the opened div when onload
         var openDiv = menuSpan[0].parentNode;
 
+        // handle all secondary menus
         for (var i = 0; i < menuSpan.length; i++) {
           menuSpan[i].onclick = function () {
             var parentDiv = this.parentNode;
 
+            // toggle parent div class
             toggleMenu(parentDiv);
 
             // if (openDiv != parentDiv) {
@@ -46,7 +49,7 @@
               toggleMenu(openDiv);
             }
 
-            // it won't go back to above section again after this code
+            // record the opened div
             openDiv = parentDiv;
           };
         }
@@ -56,14 +59,18 @@
         // automatically get the height
         var begin = obj.offsetHeight;
 
+        // if obj has collapsed attr, then remove; otherwise add
+        // change css will change the height of obj, but only for getting the end target height
         toggleClass(obj, "collapsed");
 
         var end = obj.offsetHeight;
 
-        // quickly set obj's begin height, then "move" to end
+        // quickly set obj back to the begin height, then "move" to end
         obj.style.height = begin + "px";
+        // will change the attribute here, so don't need inner style, otherwise obj moves to the target already
         move(obj, "height", end, 10, function () {
-          // delete style otherwise the height won't change
+          // callback fun delete style otherwise the height won't change
+          // after animating, inner style doesn't needed
           obj.style.height = "";
         });
       }
