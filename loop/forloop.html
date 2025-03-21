@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      console.log("-----------------------");
+      let arr = [10, 20, 30, 40, 50];
+      let sum = 0;
+      for (let index = 0; index < arr.length; index++) {
+        sum += arr[index];
+      }
+      console.log(sum);
+
+      console.log("-----------------------");
+      // get index
+      for (let index in arr) {
+        console.log(index);
+      }
+
+      //get value
+      for (let value of arr) {
+        console.log(value);
+      }
+
+      let obj = {
+        name: "erli",
+        age: 18,
+        hobby: "painting",
+      };
+
+      // get index
+      for (let index in obj) {
+        console.log(index);
+        console.log(obj[index]);
+      }
+
+      //get value, error! loops through the values of an iterable object
+      //   for (let value of obj) {
+      //     console.log(value);
+      //   }
+
+      console.log("-----------------------");
+      //There is also a "for-each" loop, which is used exclusively to loop through
+      //elements in an array (or other data sets):
+      // not working
+      // int[] numArr = {1,2,3,4,5}
+      // for (int index:numArr) {
+      //     console.log(index)
+      // }
+
+      console.log("-----------------------");
+      //The forEach() method calls a function for each element in an array.
+      myFunction = (item) => {
+        sum2 += item;
+      };
+      let sum2 = 0;
+      const numArr = [1, 2, 3, 4, 5];
+      numArr.forEach(myFunction);
+      console.log(sum2);
+
+      // non arraw function can put behind
+      //   function myFunction(item) {
+      //     sum2 += item;
+      //   }
+
+      console.log("-----------------------");
+      numArr.forEach((val, index) => {
+        console.log(index + " " + val);
+      });
+
+      console.log("-----------------------");
+    </script>
+  </head>
+  <body></body>
+</html>
