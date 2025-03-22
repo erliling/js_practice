@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      window.onload = function () {
+        let imgelem = document.querySelector("img");
+        // make sure to add [index] cz this returns an array
+        let prevbtn = document.getElementsByClassName("prev")[0];
+        let nextbtn = document.getElementsByClassName("next")[0];
+        const imagenum = 5;
+        let index = 0;
+
+        nextbtn.onclick = function () {
+          index %= imagenum;
+          index++;
+          imgelem.setAttribute("src", `../images/${index}.jpeg`);
+          // console.log(imgelem.getAttribute("src"));
+          console.log("index = :" + index);
+        };
+
+        prevbtn.onclick = function () {
+          console.log("index = :" + index);
+          index--;
+          if (index < 1) index = imagenum;
+          imgelem.setAttribute("src", `../images/${index}.jpeg`);
+        };
+      };
+    </script>
+    <style>
+      body {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .carousel {
+        /* width: 500px;
+        height: 500px; */
+      }
+      img {
+        width: 800px;
+        height: 400px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <div class="outer"> -->
+    <div class="carousel">
+      <img src="../images/1.jpeg" alt="" />
+      <br />
+      <button class="prev">Prev</button>
+      <button class="next">Next</button>
+    </div>
+    <!-- </div> -->
+  </body>
+</html>

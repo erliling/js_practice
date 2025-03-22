@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .mainimg {
+        width: 800px;
+        height: 400px;
+      }
+      .subimg {
+        width: 50px;
+        height: 50px;
+        overflow: hidden;
+
+        opacity: 0.5;
+        /* transition: 1s all linear; */
+        transition: 0.3s linear all;
+      }
+      .active {
+        opacity: 1;
+        border: 1px solid red;
+      }
+
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      ul {
+        display: flex;
+      }
+      li {
+        width: 60px;
+        height: 60px;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        list-style: none;
+        cursor: pointer;
+        /* padding-right: 10px; */
+
+        /* border: none; */
+        /* opacity: 0; */
+      }
+      li:hover .subimg {
+        border: 1px solid red;
+        opacity: 1;
+        transform: scale(1.1);
+      }
+    </style>
+    <script>
+      window.onload = function () {
+        let mainimgelem = document.getElementsByClassName("mainimg")[0];
+        let subimgs = document.getElementsByClassName("subimg");
+        console.log(subimgs);
+        Array.from(subimgs).forEach((element) => {
+          //   console.log(element);
+          element.onmouseover = function () {
+            // console.log(element.getAttribute("src"));
+            mainimgelem.setAttribute("src", element.getAttribute("src"));
+
+            let activeimg = document.getElementsByClassName("active")[0];
+            activeimg.setAttribute(
+              "class",
+              activeimg.getAttribute("class").replace("active", "")
+            );
+
+            element.setAttribute(
+              "class",
+              element.getAttribute("class") + " active"
+            );
+          };
+        });
+      };
+    </script>
+  </head>
+  <body>
+    <div class="carousel">
+      <img class="mainimg" src="../images/1.jpeg" alt="" />
+      <ul>
+        <li>
+          <img class="subimg active" src="../images/1.jpeg" alt="" />
+        </li>
+        <li>
+          <img class="subimg" src="../images/2.jpeg" alt="" />
+        </li>
+        <li>
+          <img class="subimg" src="../images/3.jpeg" alt="" />
+        </li>
+        <li>
+          <img class="subimg" src="../images/4.jpeg" alt="" />
+        </li>
+        <li>
+          <img class="subimg" src="../images/5.jpeg" alt="" />
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>
