@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      .skin {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url(../images/1.jpeg);
+        background-position: center 0;
+        background-repeat: no-repeat;
+        /* z-index: 10; */
+      }
+      .skinbox {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        /* width: 800px;
+        height: 70px; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 99;
+      }
+      .skinbox ul {
+        list-style: none;
+        width: 1200px;
+        height: 100px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        background-color: rgba(0, 0, 255, 0.3);
+      }
+      .skinbox ul li {
+        display: inline-block;
+        /* margin-right: 100px; */
+        cursor: pointer;
+      }
+      .skinbox ul li img {
+        width: 100px;
+        height: 70px;
+        /* z-index: 99; */
+      }
+    </style>
+    <script>
+      window.onload = function () {
+        let mainimgelem = document.getElementsByClassName("skin")[0];
+        let subimgs = document.querySelectorAll("img");
+        console.log(subimgs);
+        Array.from(subimgs).forEach((element) => {
+          //   console.log(element);
+          element.onclick = function () {
+            console.log('url("' + element.getAttribute("src") + '")');
+            // mainimgelem.setAttribute(
+            //   "background",
+            //   'url("' + element.getAttribute("src") + '")'
+            // );
+            // doesn't work using setAttribute for background attr
+            mainimgelem.style.backgroundImage =
+              'url("' + element.getAttribute("src") + '")';
+
+            // // make prev deactive
+            // let activeimg = document.getElementsByClassName("active")[0];
+            // activeimg.setAttribute(
+            //   "class",
+            //   activeimg.getAttribute("class").replace("active", "")
+            // );
+
+            // // make current active
+            // element.setAttribute(
+            //   "class",
+            //   element.getAttribute("class") + " active"
+            // );
+          };
+        });
+      };
+    </script>
+  </head>
+  <body>
+    <div class="skin"></div>
+
+    <div class="skinbox">
+      <ul>
+        <li>
+          <img src="../images/1.jpeg" alt="" />
+        </li>
+        <li>
+          <img src="../images/2.jpeg" alt="" />
+        </li>
+        <li>
+          <img src="../images/3.jpeg" alt="" />
+        </li>
+        <li>
+          <img src="../images/4.jpeg" alt="" />
+        </li>
+        <li>
+          <img src="../images/5.jpeg" alt="" />
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>
