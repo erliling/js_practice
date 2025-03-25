@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      body {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .carousel {
+        width: 900px;
+        height: 70px;
+        /* positioning ul list */
+        padding-top: 480px;
+        background: url("../images/1.jpeg");
+      }
+
+      .carousel ul li {
+        /* make ul list horizontal */
+        display: inline-block;
+        margin-right: 15px;
+        cursor: pointer;
+      }
+
+      li:hover .subimg {
+        border: 1px solid red;
+        opacity: 1;
+        transform: scale(1.1);
+      }
+
+      .subimg {
+        width: 50px;
+        height: 50px;
+        overflow: hidden;
+
+        opacity: 0.5;
+        /* transition: 1s all linear; */
+        transition: 0.3s linear all;
+      }
+      .active {
+        opacity: 1;
+        border: 1px solid red;
+      }
+
+      /* ul {
+        display: flex;
+      }
+      li {
+        width: 60px;
+        height: 60px;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        list-style: none;
+        cursor: pointer;
+      }
+      li:hover .subimg {
+        border: 1px solid red;
+        opacity: 1;
+        transform: scale(1.1);
+      } */
+    </style>
+    <script>
+      window.onload = function () {
+        let mainimgelem = document.getElementsByClassName("carousel")[0];
+        let subimgs = document.getElementsByClassName("subimg");
+        console.log(subimgs);
+        Array.from(subimgs).forEach((element) => {
+          //   console.log(element);
+          element.onmouseover = function () {
+            console.log('url("' + element.getAttribute("src") + '")');
+            // mainimgelem.setAttribute(
+            //   "background",
+            //   'url("' + element.getAttribute("src") + '")'
+            // );
+            // doesn't work using setAttribute for background attr
+            mainimgelem.style.background =
+              'url("' + element.getAttribute("src") + '")';
+
+            // make prev deactive
+            let activeimg = document.getElementsByClassName("active")[0];
+            activeimg.setAttribute(
+              "class",
+              activeimg.getAttribute("class").replace("active", "")
+            );
+
+            // make current active
+            element.setAttribute(
+              "class",
+              element.getAttribute("class") + " active"
+            );
+          };
+        });
+      };
+    </script>
+  </head>
+  <body>
+    <div class="carousel">
+      <ul>
+        <li>
+          <img class="subimg active" src="../images/1.jpeg" alt="" />
+        </li>
+        <li>
+          <img class="subimg" src="../images/2.jpeg" alt="" />
+        </li>
+        <li>
+          <img class="subimg" src="../images/3.jpeg" alt="" />
+        </li>
+        <li>
+          <img class="subimg" src="../images/4.jpeg" alt="" />
+        </li>
+        <li>
+          <img class="subimg" src="../images/5.jpeg" alt="" />
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>
