@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      .musicbox {
+        width: 500px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        padding: 30px;
+        margin: 100px auto;
+      }
+      .footer {
+        text-align: center;
+      }
+      hr {
+        margin: 10px auto;
+      }
+      ul {
+        list-style: none;
+        /* vertical-align: baseline; */
+      }
+      li {
+        /* height: 20px;
+        line-height: 20px; */
+      }
+      li input {
+        /* vertical-align: baseline; */
+        margin: 5px;
+      }
+      li span {
+        /* vertical-align: baseline; */
+      }
+    </style>
+    <script>
+      function $(id) {
+        return typeof id === "string" ? document.getElementById(id) : null;
+      }
+
+      window.onload = function () {
+        let selectallbtn = document.getElementById("selectall");
+        let removebtn = document.getElementById("remove");
+        let togglebtn = document.getElementById("toggle");
+        let inputarr = document.querySelectorAll("input");
+
+        selectallbtn.onclick = function () {
+          Array.from(inputarr).forEach((element) => {
+            element.checked = true;
+          });
+        };
+
+        removebtn.onclick = function () {
+          Array.from(inputarr).forEach((element) => {
+            if (element.checked === true) {
+              element.checked = false;
+            }
+          });
+        };
+
+        togglebtn.onclick = function () {
+          Array.from(inputarr).forEach((element) => {
+            element.checked = !element.checked;
+            // if (element.checked === true) {
+            //   element.checked = false;
+            // }
+          });
+        };
+      };
+    </script>
+  </head>
+  <body>
+    <div class="musicbox">
+      <h3>musicbox</h3>
+      <hr />
+      <ul>
+        <li><input type="checkbox" /><span>christmas song</span></li>
+        <li><input type="checkbox" />christmas song</li>
+        <li><input type="checkbox" />christmas song</li>
+        <li><input type="checkbox" />christmas song</li>
+        <li><input type="checkbox" />christmas song</li>
+        <li><input type="checkbox" />christmas song</li>
+        <li><input type="checkbox" />christmas song</li>
+      </ul>
+      <hr />
+      <div class="footer">
+        <button id="selectall">select all</button>
+        <button id="remove">remove selected</button>
+        <button id="toggle">toggle selected</button>
+      </div>
+    </div>
+  </body>
+</html>
