@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      h3 {
+        display: inline-block;
+      }
+      input {
+        margin: auto 10px;
+      }
+      span {
+        color: rgb(154, 154, 154);
+      }
+      .scorebox {
+        width: 500px;
+        margin: 100px auto;
+      }
+      .right {
+        background: url("../images/right.jpg") no-repeat 0px center;
+        background-size: 15px 15px;
+        padding-left: 20px;
+        color: green;
+      }
+      .wrong {
+        background: url("../images/wrong.jpg") no-repeat 0px center;
+        background-size: 15px 15px;
+        padding-left: 20px;
+        color: red;
+      }
+    </style>
+    <script></script>
+  </head>
+  <body>
+    <div class="scorebox">
+      <!-- <h3>your score:</h3> -->
+      <label for="score">your score: </label>
+      <input id="score" type="text" placeholder="please input your score" />
+      <span id="prompt" class="right">please input your score!</span>
+    </div>
+  </body>
+</html>
