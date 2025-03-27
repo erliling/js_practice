@@ -16,8 +16,9 @@
         color: rgb(154, 154, 154);
       }
       .scorebox {
-        width: 500px;
+        width: 600px;
         margin: 100px auto;
+        /* text-align: center; */
       }
       .right {
         background: url("../images/right.jpg") no-repeat 0px center;
@@ -32,14 +33,47 @@
         color: red;
       }
     </style>
-    <script></script>
+    <script>
+      function $(id) {
+        return typeof id === "string" ? document.getElementById(id) : null;
+      }
+      window.onload = function () {
+        let scoreinput = $("score");
+        let promptspan = $("prompt");
+
+        scoreinput.onblur = function () {
+          let scorevalue = parseFloat(this.value);
+          if (isNaN(scorevalue)) {
+            promptspan.innerHTML = "please input a number";
+            // promptspan.setAttribute("class", "wrong");
+            promptspan.className = "wrong";
+            this.style.borderColor = "red";
+          } else if (scorevalue >= 0 && scorevalue <= 100) {
+            promptspan.innerHTML = "correct";
+            promptspan.setAttribute("class", "right");
+            this.style.borderColor = "green";
+          } else {
+            promptspan.innerHTML = "the number should be between 0 and 100";
+            promptspan.className = "wrong";
+            this.style.borderColor = "red";
+          }
+        };
+
+        scoreinput.onfocus = function () {
+          promptspan.innerHTML = "please input your score!";
+          promptspan.setAttribute("class", "");
+          this.style.borderColor = "gray";
+          this.value = "";
+        };
+      };
+    </script>
   </head>
   <body>
     <div class="scorebox">
       <!-- <h3>your score:</h3> -->
       <label for="score">your score: </label>
       <input id="score" type="text" placeholder="please input your score" />
-      <span id="prompt" class="right">please input your score!</span>
+      <span id="prompt">please input your score!</span>
     </div>
   </body>
 </html>
