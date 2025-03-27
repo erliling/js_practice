@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      input {
+        margin: auto 10px;
+      }
+      .uploadbox {
+        width: 600px;
+        margin: 100px auto;
+        /* text-align: center; */
+      }
+    </style>
+    <script>
+      function $(id) {
+        return typeof id === "string" ? document.getElementById(id) : null;
+      }
+      window.onload = function () {
+        let fileinput = $("file");
+        let filesuffixarr = ["jpg", "png", "jpeg", "gif"];
+
+        fileinput.onchange = function () {
+          let path = this.value;
+          // let index = path.lastIndexOf(".");
+          // let substr = path.substr(index);
+          let subarr = path.split(".");
+          let suffix = subarr[1].toLowerCase();
+          // console.log(suffix);
+
+          if (filesuffixarr.includes(suffix)) {
+            alert("correct!");
+          } else {
+            alert("wrong format");
+          }
+        };
+      };
+    </script>
+  </head>
+  <body>
+    <div class="uploadbox">
+      <label for="file">validate update picture: </label>
+      <input id="file" type="file" />
+    </div>
+  </body>
+</html>
