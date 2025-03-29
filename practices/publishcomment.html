@@ -63,15 +63,30 @@
           //                     <span>${commentvalue}</span>
           //                     <a href="#">delete</a>
           //                     </li>`;
+          let id = commentlist.children.length + 1;
+
+          if (commentvalue.length === 0) {
+            alert("please input value");
+            return;
+          }
           let newli = document.createElement("li");
+          newli.setAttribute("id", id);
           newli.innerHTML = `<span>${commentvalue}</span>
-                             <a href="#">delete</a>`;
+                             <a href="javascript:deletecomment(${id})">delete</a>`;
 
           //   commentlist.appendChild(newli);
 
           commentlist.insertBefore(newli, commentlist.firstChild);
+
+          commentelem.value = "";
         };
       };
+
+      function deletecomment(id) {
+        let tbdcomment = document.getElementById(id);
+        let commentlist = document.getElementById("commentlist");
+        commentlist.removeChild(tbdcomment);
+      }
     </script>
   </head>
   <body>
