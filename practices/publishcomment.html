@@ -71,8 +71,10 @@
           }
           let newli = document.createElement("li");
           newli.setAttribute("id", id);
+          //   newli.innerHTML = `<span>${commentvalue}</span>
+          //                      <a href="javascript:deletecomment(${id})">delete</a>`;
           newli.innerHTML = `<span>${commentvalue}</span>
-                             <a href="javascript:deletecomment(${id})">delete</a>`;
+                             <a onclick="deletecomment2()" href="#" >delete</a>`;
 
           //   commentlist.appendChild(newli);
 
@@ -82,7 +84,13 @@
         };
       };
 
+      function deletecomment2() {
+        // remove from bottom up
+        event.currentTarget.parentNode.remove();
+      }
+
       function deletecomment(id) {
+        // remove from top down
         let tbdcomment = document.getElementById(id);
         let commentlist = document.getElementById("commentlist");
         commentlist.removeChild(tbdcomment);
