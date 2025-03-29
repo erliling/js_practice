@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      img {
+        width: 200px;
+        height: 100px;
+        display: block;
+        /* text-align: center; */
+        margin: auto;
+      }
+      .itemlist {
+        overflow: hidden;
+      }
+      .itemlist .item {
+        width: 248px;
+        /* height: 160px; */
+        font-size: 12px;
+        border: 1px solid #ccc;
+      }
+      .itemlist .item .title {
+        width: 248px;
+        height: 30px;
+        line-height: 30px;
+        overflow: hidden;
+        margin-bottom: 10px;
+      }
+      .itemlist .item .price {
+        color: #ff6700;
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+    </style>
+    <script>
+      window.onload = function () {
+        let btns = document.querySelectorAll("button");
+
+        Array.from(btns).forEach((element, index) => {
+          element.onclick = function () {
+            renderlayout(index + 3);
+          };
+        });
+      };
+      function renderlayout(colnum) {
+        let items = document.querySelectorAll(".item");
+        items[0].parentNode.style.width = colnum * items[0].offsetWidth + "px";
+        Array.from(items).forEach((element) => {
+          element.style.float = "left";
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <div class="btnpanel">
+      <button>3 cols</button>
+      <button>4 cols</button>
+      <button>5 cols</button>
+    </div>
+    <div class="itemlist">
+      <div class="item">
+        <img src="../images/1.jpeg" alt="" />
+        <p class="title">
+          beautiful dressbeautiful dressbeautiful dressbe aut iful dressbe
+          autiful dressbeautiful dressbeautiful dressbeautiful dressbeautiful
+          dress
+        </p>
+        <p class="price">$30</p>
+      </div>
+      <div class="item">
+        <img src="../images/2.jpeg" alt="" />
+        <p class="title">beautiful dress</p>
+        <p class="price">$30</p>
+      </div>
+      <div class="item">
+        <img src="../images/3.jpeg" alt="" />
+        <p class="title">beautiful dress</p>
+        <p class="price">$30</p>
+      </div>
+      <div class="item">
+        <img src="../images/4.jpeg" alt="" />
+        <p class="title">beautiful dress</p>
+        <p class="price">$30</p>
+      </div>
+      <div class="item">
+        <img src="../images/5.jpeg" alt="" />
+        <p class="title">beautiful dress</p>
+        <p class="price">$30</p>
+      </div>
+      <div class="item">
+        <img src="../images/1.jpeg" alt="" />
+        <p class="title">beautiful dress</p>
+        <p class="price">$30</p>
+      </div>
+      <div class="item">
+        <img src="../images/2.jpeg" alt="" />
+        <p class="title">beautiful dress</p>
+        <p class="price">$30</p>
+      </div>
+      <div class="item">
+        <img src="../images/3.jpeg" alt="" />
+        <p class="title">beautiful dress</p>
+        <p class="price">$30</p>
+      </div>
+      <div class="item">
+        <img src="../images/4.jpeg" alt="" />
+        <p class="title">beautiful dress</p>
+        <p class="price">$30</p>
+      </div>
+      <div class="item">
+        <img src="../images/5.jpeg" alt="" />
+        <p class="title">beautiful dress</p>
+        <p class="price">$30</p>
+      </div>
+      <div class="item">
+        <img src="../images/1.jpeg" alt="" />
+        <p class="title">beautiful dress</p>
+        <p class="price">$30</p>
+      </div>
+      <div class="item">
+        <img src="../images/2.jpeg" alt="" />
+        <p class="title">beautiful dress</p>
+        <p class="price">$30</p>
+      </div>
+      <div class="item">
+        <img src="../images/3.jpeg" alt="" />
+        <p class="title">beautiful dress</p>
+        <p class="price">$30</p>
+      </div>
+      <div class="item">
+        <img src="../images/4.jpeg" alt="" />
+        <p class="title">beautiful dress</p>
+        <p class="price">$30</p>
+      </div>
+      <div class="item">
+        <img src="../images/5.jpeg" alt="" />
+        <p class="title">beautiful dress</p>
+        <p class="price">$30</p>
+      </div>
+      <div class="item">
+        <img src="../images/1.jpeg" alt="" />
+        <p class="title">beautiful dress</p>
+        <p class="price">$30</p>
+      </div>
+      <div class="item">
+        <img src="../images/2.jpeg" alt="" />
+        <p class="title">beautiful dress</p>
+        <p class="price">$30</p>
+      </div>
+      <div class="item">
+        <img src="../images/3.jpeg" alt="" />
+        <p class="title">beautiful dress</p>
+        <p class="price">$30</p>
+      </div>
+      <div class="item">
+        <img src="../images/4.jpeg" alt="" />
+        <p class="title">beautiful dress</p>
+        <p class="price">$30</p>
+      </div>
+      <div class="item">
+        <img src="../images/5.jpeg" alt="" />
+        <p class="title">beautiful dress</p>
+        <p class="price">$30</p>
+      </div>
+    </div>
+  </body>
+</html>
