@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .publishbox {
+        width: 1000px;
+        margin: 100px auto;
+        border: 1px solid #ccc;
+        padding: 20px;
+      }
+      #comment {
+        width: 80%;
+        padding: 10px;
+        font-size: 20px;
+        /* outline: none; */
+      }
+      #publish {
+        vertical-align: baseline;
+      }
+      .output {
+        border: 1px solid red;
+        width: 80%;
+      }
+      ul {
+        width: 82%;
+        list-style: none;
+        /* border: 1px solid red; */
+        padding-left: 0;
+        padding-right: 0;
+        padding-bottom: 20px;
+      }
+      ul li {
+        border-bottom: 1px dashed #ccc;
+        padding-bottom: 10px;
+        overflow: hidden;
+        color: orchid;
+      }
+      ul li span {
+        float: left;
+      }
+      ul li a {
+        float: right;
+      }
+
+      /* how to align  button with textarea? */
+      /* textarea {
+        display: inline-block;
+      } */
+    </style>
+    <script>
+      window.onload = function () {
+        let commentelem = document.getElementById("comment");
+        let publishbtn = document.getElementById("publish");
+        let commentlist = document.getElementById("commentlist");
+
+        publishbtn.onclick = function () {
+          let commentvalue = commentelem.value;
+          //   let newlielem = `<li class="singlecomment">
+          //                     <span>${commentvalue}</span>
+          //                     <a href="#">delete</a>
+          //                     </li>`;
+          let newli = document.createElement("li");
+          newli.innerHTML = `<span>${commentvalue}</span>
+                             <a href="#">delete</a>`;
+
+          //   commentlist.appendChild(newli);
+
+          commentlist.insertBefore(newli, commentlist.firstChild);
+        };
+      };
+    </script>
+  </head>
+  <body>
+    <div class="publishbox">
+      <div class="input">
+        <textarea name="" id="comment" cols="80" rows="10"></textarea>
+        <button id="publish">publish</button>
+      </div>
+      <ul id="commentlist">
+        <li class="singlecomment">
+          <span>my comment</span>
+          <a href="#">delete</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>
